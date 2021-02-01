@@ -1,5 +1,6 @@
 import {Entity,Column,PrimaryGeneratedColumn,OneToMany, JoinColumn} from 'typeorm';
 import Item from './Item';
+
 @Entity('categories')
 export default class Categories{
     @PrimaryGeneratedColumn('increment')
