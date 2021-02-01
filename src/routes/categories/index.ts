@@ -5,13 +5,19 @@ import CategoriesModel from '../../models/Categories';
 const route = express.Router();
 
 
-route.get('/categories',(req,res)=>{
-    res.json('Listando categorias');
+route.get('/categories', async (req,res)=>{
+    const orphanagesRepository = getRepository(CategoriesModel);
+    const list = await orphanagesRepository.find();
+
+    return res.json(list);
 });
 
-route.get('/categories/:id',(req,res)=>{
-    const data = req.params;
-    res.json(data);
+route.get('/categories/:id', async (req,res)=>{
+    const orphanagesRepository = getRepository(CategoriesModel);
+    const {id} = req.params;
+    const list = await orphanagesRepository.findOneOrFail(id);
+
+    return res.json(list);
 });
 
 route.post('/categories',async (req,res)=>{
