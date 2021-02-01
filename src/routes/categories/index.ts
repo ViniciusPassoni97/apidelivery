@@ -4,7 +4,7 @@ const route = express.Router();
 
 
 route.get('/categories',(req,res)=>{
-    res.send('Listando categorias');
+    res.json('Listando categorias');
 });
 
 route.get('/categories/:id',(req,res)=>{
@@ -14,7 +14,7 @@ route.get('/categories/:id',(req,res)=>{
 
 route.post('/categories',(req,res)=>{
     const data = req.body;
-    res.send(data);
+    res.json(data);
 });
 
 

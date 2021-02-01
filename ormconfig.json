@@ -6,10 +6,10 @@
     "password": "1234",
     "database": "postgres",
     "entitiesDir": [
-       "src/models/**/*.ts"
+       "src/models/*.ts"
     ],
     "migrations": [
-       "src/database/migration/**/*.ts"
+       "src/database/migrations/*.ts"
     ],
     "cli":{
       "migrationsDir":"./src/database/migrations"
