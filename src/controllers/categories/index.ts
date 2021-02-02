@@ -37,4 +37,5 @@ export default {
         const list = await orphanagesRepository.findOneOrFail(id);
         return response.json(list);
     }
+
 }
