@@ -40,7 +40,7 @@ export default {
         const orphanagesRepository = getRepository(CategoriesModel);
         const {id} = request.params;
         console.log(id);
-        const list = await orphanagesRepository.query(`SELECT * FROM categories where categories.category_id = ${id}`);
+        const list = await orphanagesRepository.query(`SELECT count(*) FROM itens where itens.category_id = ${id}`);
         return response.json(list);
     }
 }
