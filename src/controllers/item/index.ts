@@ -9,7 +9,6 @@ export default{
             const item = getRepository(ModelItem);
             const {id} = req.params;
             const list = await item.findOneOrFail(id);
-    
             return res.json(list);
         } catch (error) {
             return res.json(error);

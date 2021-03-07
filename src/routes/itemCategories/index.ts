@@ -12,5 +12,4 @@ route.get('/itemCategories',itemController.show);
 route.get('/itemCategories/:id',itemController.showById);
 route.post('/itemCategories',itemController.index);
 
-
 export default route;

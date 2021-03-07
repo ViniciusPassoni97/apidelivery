@@ -34,8 +34,13 @@ export default {
     async showById(request:Request,response:Response){
         const orphanagesRepository = getRepository(CategoriesModel);
         const {id} = request.params;
-        const list = await orphanagesRepository.findOneOrFail(id);
+        return response.json(id);
+    },
+    async showByIdCategories(request:Request,response:Response){
+        const orphanagesRepository = getRepository(CategoriesModel);
+        const {id} = request.params;
+        console.log(id);
+        const list = await orphanagesRepository.query(`SELECT * FROM categories where categories.category_id = ${id}`);
         return response.json(list);
     }
-
 }
