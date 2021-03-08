@@ -11,5 +11,6 @@ const upload = multer(ConfigMulter);
 route.get('/itemCategories',itemController.show);
 route.get('/itemCategories/:id',itemController.showById);
 route.post('/itemCategories',itemController.index);
+route.delete('/itemCategories/:id',itemController.deleteByIdItens);
 
 export default route;

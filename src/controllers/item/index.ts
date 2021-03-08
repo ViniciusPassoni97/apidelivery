@@ -29,13 +29,21 @@ export default{
             const data = req.body;
             const itemRepository = getRepository(ModelItem);
             const dataSave =  itemRepository.create(data);
-            console.log(dataSave);
             const item = await itemRepository.save(dataSave);
-            console.log(item);
 
             return res.json(item);
         } catch (error) {
             return res.json(error);
         }   
+    },
+    async deleteByIdItens(req:Request,res:Response){
+        try {
+            const item = getRepository(ModelItem);
+            const {id} = req.params;
+            const list = await item.delete(id);
+            return res.json(list);
+        } catch (error) {
+            return res.json(error);
+        }
     }
 }
