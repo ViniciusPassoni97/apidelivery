@@ -37,9 +37,23 @@ export default {
         return response.json(id);
     },
     async showByIdCategories(request:Request,response:Response){
-        const orphanagesRepository = getRepository(CategoriesModel);
-        const {id} = request.params;
-        const list = await orphanagesRepository.query(`SELECT count(*) FROM itens where itens.category_id = ${id}`);
-        return response.json(list);
-    }
+        try {
+            const orphanagesRepository = getRepository(CategoriesModel);
+            const {id} = request.params;
+            const list = await orphanagesRepository.query(`SELECT count(*) FROM itens where itens.category_id = ${id}`);
+            return response.json(list);   
+        } catch (error) {
+            return response.json(error);
+        }
+    },
+    async deleteByIdCategory(request:Request,response:Response){
+        try {
+            const orphanagesRepository = getRepository(CategoriesModel);
+            const {id} = request.params;
+            const data = await orphanagesRepository.delete(id);
+            return response.json(data);
+        } catch (error) {
+            return response.json(error);
+        }
+    },
 }

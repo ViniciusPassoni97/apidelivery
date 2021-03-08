@@ -7,5 +7,6 @@ route.get('/categories', CategoriesController.show);
 route.get('/categories/:id', CategoriesController.showById);
 route.post('/categories', CategoriesController.index);
 route.get('/itemCategories/categories/:id',CategoriesController.showByIdCategories);
+route.delete('/categories/:id',CategoriesController.deleteByIdCategory);
 
 export default route;
