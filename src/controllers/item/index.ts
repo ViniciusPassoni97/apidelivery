@@ -45,5 +45,15 @@ export default{
         } catch (error) {
             return res.json(error);
         }
+    },
+    async showItensByIdCategory(req:Request,res:Response){
+        try {
+            const item = getRepository(ModelItem);
+            const {id} = req.params;
+            const listItem = await item.query(`SELECT * FROM itens WHERE itens.category_id = ${id}`);
+            return res.json(listItem);
+        } catch (error) {
+            return res.json(error);
+        }
     }
 }
