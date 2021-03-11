@@ -34,7 +34,8 @@ export default {
     async showById(request:Request,response:Response){
         const orphanagesRepository = getRepository(CategoriesModel);
         const {id} = request.params;
-        return response.json(id);
+        const listCategoryById = await orphanagesRepository.query(`SELECT * FROM categories WHERE categories.id = ${id}`);
+        return response.json(listCategoryById);
     },
     async showByIdCategories(request:Request,response:Response){
         try {
